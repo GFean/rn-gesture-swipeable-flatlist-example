@@ -5481,14 +5481,6 @@ react-native-gradle-plugin@^0.71.18:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.18.tgz#20ef199bc85be32e45bb6cc069ec2e7dcb1a74a6"
   integrity sha512-7F6bD7B8Xsn3JllxcwHhFcsl9aHIig47+3eN4IHFNqfLhZr++3ElDrcqfMzugM+niWbaMi7bJ0kAkAL8eCpdWg==
 
-"react-native-swipable-flatlist@https://github.com/GFean/react-native-swipable-flatlist":
-  version "1.0.0"
-  resolved "https://github.com/GFean/react-native-swipable-flatlist#206780decc27740c5f0649fc70468656c696ac3a"
-  dependencies:
-    react "^18.2.0"
-    react-native "^0.71.8"
-    react-native-gesture-handler "^2.10.1"
-
 react-native@0.71.8, react-native@^0.71.8:
   version "0.71.8"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.71.8.tgz#4314145341c49448cf7465b93ced52a433a5e191"
@@ -5775,6 +5767,15 @@ rimraf@~2.6.2:
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
   dependencies:
     glob "^7.1.3"
+
+rn-gesture-swipeable-flatlist@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rn-gesture-swipeable-flatlist/-/rn-gesture-swipeable-flatlist-1.0.0.tgz#2b634a9c022719b79c526f59ecd4499ae8a6bc58"
+  integrity sha512-c0La8GJ9zsN+fvDwuoxJXVRhi1m+SJCryXylPKWUxlu62Ty/JZzqb15bOhzkKOWTOmKj8c2ZSIzYP3psO2X2iQ==
+  dependencies:
+    react "^18.2.0"
+    react-native "^0.71.8"
+    react-native-gesture-handler "^2.10.1"
 
 run-parallel@^1.1.9:
   version "1.2.0"

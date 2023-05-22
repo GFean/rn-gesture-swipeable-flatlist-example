@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useState } from 'react';
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import SwipableFlatList from 'react-native-swipable-flatlist';
+import SwipeableFlatList from 'rn-gesture-swipeable-flatlist';
+
 
 
 interface DataItem {
@@ -48,7 +49,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <SwipableFlatList
+      <SwipeableFlatList
         data={data}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
