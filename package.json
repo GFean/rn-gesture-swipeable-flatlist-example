@@ -12,11 +12,14 @@
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
-    "react-native": "0.71.8"
+    "react-native": "0.71.8",
+    "react-native-swipable-flatlist": "https://github.com/GFean/react-native-swipable-flatlist"
+   
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.0.14",
+    "@types/react-native": "^0.72.0",
     "typescript": "^4.9.4"
   },
   "private": true
