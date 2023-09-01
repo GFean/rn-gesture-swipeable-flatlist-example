@@ -13,7 +13,8 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "rn-gesture-swipeable-flatlist": "^1.0.0"
+    "react-native-gesture-handler": "~2.9.0",
+    "rn-gesture-swipeable-flatlist": "^1.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

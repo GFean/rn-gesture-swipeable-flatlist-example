@@ -5,6 +5,8 @@ import SwipeableFlatList from 'rn-gesture-swipeable-flatlist';
 
 
 
+
+
 interface DataItem {
   id: string;
   text: string;
@@ -52,6 +54,7 @@ export default function App() {
       <SwipeableFlatList
         data={data}
         keyExtractor={(item) => item.id}
+        enableOpenMultipleRows={false} //make sure to refresh the list once you alter this
         renderItem={renderItem}
         renderLeftActions={renderLeftAction}
         renderRightActions={renderRightAction}
