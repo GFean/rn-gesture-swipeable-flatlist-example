@@ -1,11 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useRef, useState } from 'react';
-import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import SwipeableFlatList from 'rn-gesture-swipeable-flatlist';
-
-
-
-
+import { Alert, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import SwipeableFlatList, { SwipeableFlatListRef } from 'rn-gesture-swipeable-flatlist';
 
 interface DataItem {
    id: string;
@@ -21,7 +18,7 @@ const initialData: DataItem[] = Array.from({ length: 20 }, (_, i) => ({
 export default function App() {
 
    const [data, setData] = useState<DataItem[]>(initialData);
-   const flatlistRef = useRef<FlatList<DataItem> | null>(null);
+   const flatlistRef = useRef<SwipeableFlatListRef<DataItem> | null>(null);
    const deleteItem = useCallback((id: string) => {
       setData((prevData) => prevData.filter((item) => item.id !== id));
    }, []);
@@ -29,6 +26,11 @@ export default function App() {
    const scrollToEnd = () => {
       flatlistRef.current?.scrollToEnd();
    }
+
+   const closeAnyOpenRows = () => {
+    flatlistRef.current?.closeAnyOpenRows()
+   }
+   
    const editItem = useCallback((id: string) => {
       Alert.alert(`Editing item with id ${id}`)
    }, []);
@@ -54,10 +56,14 @@ export default function App() {
   
 
    return (
-      <View style={styles.container}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
          <StatusBar style="auto" />
          <TouchableOpacity style={styles.touchableStyle} onPress={scrollToEnd}>
             <Text>Scroll to end</Text>
+         </TouchableOpacity>
+         <TouchableOpacity style={styles.touchableStyle} onPress={closeAnyOpenRows}>
+            <Text>Close any open rows</Text>
          </TouchableOpacity>
          <SwipeableFlatList
             ref={flatlistRef}
@@ -69,7 +75,8 @@ export default function App() {
             renderRightActions={renderRightAction}
          />
 
-      </View>
+      </SafeAreaView>
+    </GestureHandlerRootView>
    );
 }
 
@@ -109,10 +116,13 @@ const styles = StyleSheet.create({
    touchableStyle:{
       backgroundColor: 'red',
       padding: 10,
+      marginTop:Platform.select({
+        android:20,
+        ios:0
+      }),
       borderRadius: 5,
       alignItems: 'center',
-      marginTop: 50,
-      marginBottom:10
+      marginBottom:5
    },
 
    buttonText: {
